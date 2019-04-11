@@ -1,0 +1,63 @@
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+int palindrome(int arr[], int beginning, int ending)
+{
+	if (beginning >= ending)
+	{
+		return 1;
+	}
+
+	if (arr[beginning] == arr[ending])
+	{
+		return palindrome(arr, beginning + 1, ending - 1);
+	}
+
+	else
+	{
+		return 0;
+	}
+}
+
+
+int main()
+{
+
+
+
+	srand(time(NULL));
+
+	const int length = 5;
+	int arr[length];
+	int arr2[length] = {2,5,0,5,2};
+
+	for (int i = 0; i < length; i++)
+	{
+		arr[i] = rand() % 10 + 1;
+		cout << arr[i] << endl;
+	}
+		
+
+	cout << endl;
+
+	for (int j = 0; j < length; j++)
+	{
+		cout << arr2[j] << endl;
+	}
+
+	//int length = sizeof(arr) / sizeof(arr[0]);
+
+	if (palindrome(arr2, 0, length - 1) == 1)
+	{
+		cout << "palindrome" << endl;
+	}
+	else
+	{
+		cout << "not a palindrome" << endl;
+	}
+
+	
+	
+}
