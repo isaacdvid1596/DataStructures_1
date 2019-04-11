@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	char grade;
+
+
+	cout << "enter grade :" << endl;
+	cin >> grade;
+
+	switch (grade)
+	{
+	case 'A':
+		cout << "Excellent" << endl;
+		break;
+
+	case 'B':
+		cout << "Good Job" << endl;
+		break;
+
+	case 'C':
+		cout << "Nice" << endl;
+		break;
+
+	case 'D':
+		cout << "Average" << endl;
+		break;
+
+	case 'F':
+		cout << "Failed" << endl;
+		break;
+
+	default:
+		cout << "Nota no valida" << endl;
+		break;
+	}
+
+	system("pause");
+
+}
