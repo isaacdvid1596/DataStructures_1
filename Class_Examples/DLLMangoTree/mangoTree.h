@@ -15,13 +15,14 @@ public:
 	mangoFruit *tail;
 	mangoTree();
 	virtual ~mangoTree();
-	int addMango(mangoFruit mango);
-	int insertMango(mangoFruit mango, int pos);
+	int addMango(mangoFruit *mango);
+	int insertMango(mangoFruit *mango, int pos);
 	int deleteMango(int pos);
 	int getCounter();
 	void printMangoTree();
-	
+
 
 
 };
+
 

@@ -20,15 +20,15 @@ mangoFruit::mangoFruit(double w)
 
 mangoFruit::~mangoFruit()
 {
-	
+
 }
 
- void mangoFruit::setWeight(double w)
+void mangoFruit::setWeight(double w)
 {
 	this->weight = w - (0.1*w);
 }
 
- double mangoFruit::getWeight()
- {
-	 return this->weight;
- }
+double mangoFruit::getWeight()
+{
+	return this->weight;
+}

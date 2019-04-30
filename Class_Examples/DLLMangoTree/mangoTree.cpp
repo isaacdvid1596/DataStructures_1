@@ -28,14 +28,17 @@ int mangoTree::addMango(mangoFruit *mango)
 		mango->prev = this->tail;
 		this->tail = mango;
 	}
-	
+
 	increaseCounter();
-	return 0;
+	return 5;
+	
 
 }
 
 int mangoTree::insertMango(mangoFruit *mango, int pos)
 {
+
+
 	if (pos > this->getCounter() + 1)
 	{
 		return -1;
@@ -63,6 +66,9 @@ int mangoTree::insertMango(mangoFruit *mango, int pos)
 		mango->next = temp;
 		mango->prev->next = mango;
 		temp->prev = mango;
+
+
+
 		increaseCounter();
 		return 0;
 	}
@@ -117,7 +123,14 @@ int mangoTree::deleteMango(int pos)
 
 void mangoTree::printMangoTree()
 {
+	mangoFruit *temp = new mangoFruit;
+	temp = this->head;
 
+	while (temp != NULL)
+	{
+		cout << temp->getWeight() << endl;
+		temp = temp->next;
+	}
 }
 
 int mangoTree::getCounter()
