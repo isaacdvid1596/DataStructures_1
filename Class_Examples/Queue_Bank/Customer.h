@@ -9,6 +9,13 @@ class Customer
 private:
 	int ticketnumber;
 
+	enum Operation
+	{
+		Deposit = 1,
+		Withdraw,
+		CustomerService,
+	};
+
 public:
 	Customer();
 	Customer(int);

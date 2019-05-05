@@ -27,7 +27,9 @@ int Cashier::Enqueue(Customer *customer)
 		customer->next = NULL;
 	}
 
-	return 0;
+	return 1;
+
+	
 
 }
 
@@ -41,21 +43,27 @@ int Cashier::Dequeue(Customer *customer)
 	}
 	else
 	{
-		customer = this->head;
-		this->head = customer->next;
-		delete customer;
+		Customer *customer1 = new Customer;
+		customer1 = this->head;
+		head = customer1->next;
+		cout << "Dequeued " << customer1->getTicketNumber() << endl;
+		delete customer1;
 	}
+
+	return 2;
+
+	increaseCounter();
 }
 
 bool Cashier::Empty()
 {
-	if (this->counter == 0)
+	if ((this->head && this->tail) == NULL)
 	{
 		return true;
 	}
 	else
 	{
-		return false;
+		false;
 	}
 }
 
@@ -76,5 +84,19 @@ void Cashier::decreaseCounter()
 
 void Cashier::printQueue()
 {
+	if (Empty()==true)
+	{
+		cout << "Empty queue , cannot print" << endl;
+	}
+	else
+	{
+		Customer *customer = new Customer;
+		customer = head;
+		while (customer != NULL)
+		{
+			cout << customer->getTicketNumber() << endl;
+			customer = customer->next;
+		}
 
+	}
 }
