@@ -8,6 +8,7 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(512, 512), "SFML Tutorial",sf::Style::Close | sf::Style::Resize);
 	sf::RectangleShape player(sf::Vector2f(100.0f, 100.0f));
 	player.setFillColor(sf::Color::Red);
+	player.setOrigin(50.0f, 50.0f);
 
 	while (window.isOpen())
 	{
@@ -35,6 +36,14 @@ int main()
 					}
 		}
 
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+			player.setPosition((float)mousePos.x, (float)(mousePos.y));
+		}
+
+
+		/*
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 		{
 			player.move(-0.1f, 0.0f);
@@ -51,6 +60,8 @@ int main()
 		{
 			player.move(0.0f, 0.1f);
 		}
+		*/
+
 		window.clear();
 		window.draw(player);
 		window.display();
