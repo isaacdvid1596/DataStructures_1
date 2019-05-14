@@ -62,12 +62,24 @@ int mangoTree::insertMango(mangoFruit *mango, int pos)
 			actualPos++;
 			temp = temp->next;
 		}
-		mango->prev = temp->prev;
-		mango->next = temp;
-		mango->prev->next = mango;
-		temp->prev = mango;
+	
+		if (actualPos == pos)
+		{
 
+			mango->prev = NULL;
+			mango->next = temp;
+			temp->prev = mango;
+			this->head = mango;
+		}
+		else
+		{
+			mango->prev = temp->prev;
+			mango->next = temp;
+			mango->prev->next = mango;
+			temp->prev = mango;
+		}
 
+	
 
 		increaseCounter();
 		return 0;
@@ -100,7 +112,11 @@ int mangoTree::deleteMango(int pos)
 
 		if (temp == this->head)
 		{
-			temp->next->prev = nullptr;
+			if (temp->next)
+				{
+				temp->next->prev = nullptr;
+				}
+			
 			head = head->next;
 		}
 		else if (temp == this->tail)
@@ -146,4 +162,55 @@ void mangoTree::increaseCounter()
 void mangoTree::decreaseCounter()
 {
 	this->counter--;
+}
+
+double mangoTree::getTotalWeight()
+{
+	double totalWeight = 0.0;
+
+	mangoFruit *mango = new mangoFruit;
+	mango = this->head;
+
+	while (mango != NULL)
+	{
+		totalWeight+=mango->getWeight();
+		mango = mango->next;
+	}
+
+	cout << totalWeight << endl;
+
+	return totalWeight;
+
+}
+
+int mangoTree::getFruitQuantity()
+{
+	return this->getCounter();
+}
+
+
+bool mangoTree::fruitMaxCapacityExceeded()
+{
+	int maxCapacity = 50;
+
+	if (this->getCounter() > maxCapacity)
+	{
+		return true;
+	}
+	else
+		return false;
+
+}
+
+bool mangoTree::treeMaxWeightExceeded()
+{
+	double maxWeight = 500.00;
+
+	if (this->getTotalWeight() > maxWeight)
+	{
+		return true;
+	}
+	else
+		return false;
+
 }
