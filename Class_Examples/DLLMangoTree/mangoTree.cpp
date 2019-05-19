@@ -222,46 +222,17 @@ bool mangoTree::treeMaxWeightExceeded()
 
 }
 
-int mangoTree::sortMangoTree()
+
+void mangoTree::mergeTrees(mangoTree list1, mangoTree list2)
 {
-	mangoFruit *temp = this->head;
-	mangoFruit *temp1 = this->head->next;
-	mangoFruit *temp2 = this->head;
-
-
-	for (int i = 0; i <= fruitCounter; i++)
-	{
-		if (temp->getWeight() > temp1->getWeight())
-		{
-			temp->next = temp1->next;
-			temp1->next->prev = temp;
-			temp->prev = temp1;
-			temp1->next = temp;
-			this->head = temp1;
-
-			temp = temp->next;
-			temp1 = temp;
-
-		}
-
-		
-	}
+	
+	list1.tail->next = list2.head;
+	list2.head->prev = list1.tail;
 
 	printMangoTree();
 
-	/*
-		if (temp->getWeight() > temp1->getWeight())
-		{
-			temp->next = temp1->next;
-			temp1->next->prev = temp;
-			temp->prev = temp1;
-			temp1->next = temp;
-			this->head = temp1;
-		}
-		*/
-
-	return 3000;
 }
+
 
 void mangoTree::decreaseFruit()
 {

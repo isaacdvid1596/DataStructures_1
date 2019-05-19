@@ -6,7 +6,7 @@
 
 void MenuSecondMangoTree();
 void MenuMangoTree();
-mangoTree mergeTrees(mangoTree list1, mangoTree list2);
+//mangoTree mergeTrees(mangoTree list1, mangoTree list2);
 
 using namespace std;
 
@@ -21,20 +21,19 @@ void addMango()
 }
 */
 
-void mergeTrees()
+void mergeTrees(mangoTree *list1 , mangoTree *list2)
 {
-	
-	mangoTree list1;
-	mangoTree list2;
-	mangoTree list3;
-
-	list1.start()
-
-
+	list1->tail->next = list2->head;
+	list2->head->prev = list1->tail;
 }
 
 mangoTree t;
 mangoTree t2;
+//mangoTree t3;
+
+
+
+
 
 void MenuMangoTree()
 {
@@ -60,7 +59,7 @@ void MenuMangoTree()
 		cout << "7-Get Tree Fruits" << endl;
 		cout << "8-Create Second Tree" << endl;
 		cout << "9-Print Both Mango Trees" << endl;
-		cout << "10-Sort Tree" << endl;
+		cout << "10-Merge" << endl;
 		cout << "12- Exit Program" << endl;
 
 		cin >> option;
@@ -188,8 +187,8 @@ void MenuMangoTree()
 
 		case 10:
 		{
-			cout << "Sorting List" << endl;
-			t.sortMangoTree();
+			cout << "Printing Merge Lists" << endl;
+			t.mergeTrees(t, t2);
 		}
 			break;
 
@@ -349,11 +348,6 @@ void MenuSecondMangoTree()
 
 
 
-
-void PrintBothTrees()
-{
-
-}
 
 int main()
 {
