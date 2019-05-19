@@ -29,7 +29,7 @@ void mergeTrees(mangoTree *list1 , mangoTree *list2)
 
 mangoTree t;
 mangoTree t2;
-//mangoTree t3;
+mangoTree t3;
 
 
 
@@ -60,6 +60,7 @@ void MenuMangoTree()
 		cout << "8-Create Second Tree" << endl;
 		cout << "9-Print Both Mango Trees" << endl;
 		cout << "10-Merge" << endl;
+		cout << "11-Print Merged Tree" << endl;
 		cout << "12- Exit Program" << endl;
 
 		cin >> option;
@@ -188,8 +189,12 @@ void MenuMangoTree()
 		case 10:
 		{
 			cout << "Printing Merge Lists" << endl;
-			t.mergeTrees(t, t2);
+			t3.mergeTrees(t, t2);
 		}
+			break;
+
+		case 11:
+
 			break;
 
 		default:
