@@ -1,9 +1,12 @@
 #include <iostream>
+#include <list>
+#include <conio.h>
 #include "mangoFruit.h"
 #include "mangoTree.h"
 
 void MenuSecondMangoTree();
 void MenuMangoTree();
+mangoTree mergeTrees(mangoTree list1, mangoTree list2);
 
 using namespace std;
 
@@ -14,9 +17,21 @@ void addMango()
 	cout << "Enter mango weight" << endl;
 	cin >> weight;
 	mangoFruit *mango = new mangoFruit(weight);
-	
+
 }
 */
+
+void mergeTrees()
+{
+	
+	mangoTree list1;
+	mangoTree list2;
+	mangoTree list3;
+
+	list1.start()
+
+
+}
 
 mangoTree t;
 mangoTree t2;
@@ -30,7 +45,7 @@ void MenuMangoTree()
 	int mangoTreeCounter = 0;
 	double weight;
 
-	
+
 
 
 	do
@@ -45,7 +60,8 @@ void MenuMangoTree()
 		cout << "7-Get Tree Fruits" << endl;
 		cout << "8-Create Second Tree" << endl;
 		cout << "9-Print Both Mango Trees" << endl;
-		cout << "10-Exit Program" << endl;
+		cout << "10-Sort Tree" << endl;
+		cout << "12- Exit Program" << endl;
 
 		cin >> option;
 
@@ -170,11 +186,18 @@ void MenuMangoTree()
 			t2.printMangoTree();
 			break;
 
+		case 10:
+		{
+			cout << "Sorting List" << endl;
+			t.sortMangoTree();
+		}
+			break;
+
 		default:
 			cout << "Unknown command please enter a valid option" << endl;
 			break;
 		}
-	} while (option != 10);
+	} while (option != 11);
 }
 
 
@@ -315,7 +338,7 @@ void MenuSecondMangoTree()
 			t2.getFruitQuantity();
 			break;
 
-		
+
 
 		default:
 			cout << "Unknown command please enter a valid option" << endl;
@@ -329,7 +352,7 @@ void MenuSecondMangoTree()
 
 void PrintBothTrees()
 {
-	
+
 }
 
 int main()

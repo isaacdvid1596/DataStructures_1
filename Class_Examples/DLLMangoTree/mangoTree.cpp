@@ -29,9 +29,11 @@ int mangoTree::addMango(mangoFruit *mango)
 		this->tail = mango;
 	}
 
+	increaseFruit();
+
 	increaseCounter();
 	return 5;
-	
+
 
 }
 
@@ -62,7 +64,7 @@ int mangoTree::insertMango(mangoFruit *mango, int pos)
 			actualPos++;
 			temp = temp->next;
 		}
-	
+
 		if (actualPos == pos)
 		{
 
@@ -79,11 +81,12 @@ int mangoTree::insertMango(mangoFruit *mango, int pos)
 			temp->prev = mango;
 		}
 
-	
+
 
 		increaseCounter();
 		return 0;
 	}
+	increaseFruit();
 	return -3;
 }
 
@@ -113,10 +116,10 @@ int mangoTree::deleteMango(int pos)
 		if (temp == this->head)
 		{
 			if (temp->next)
-				{
+			{
 				temp->next->prev = nullptr;
-				}
-			
+			}
+
 			head = head->next;
 		}
 		else if (temp == this->tail)
@@ -132,9 +135,12 @@ int mangoTree::deleteMango(int pos)
 
 		delete temp;
 		decreaseCounter();
-		return 0;
+		
 
 	}
+
+	decreaseFruit();
+	return 0;
 }
 
 void mangoTree::printMangoTree()
@@ -173,7 +179,7 @@ double mangoTree::getTotalWeight()
 
 	while (mango != NULL)
 	{
-		totalWeight+=mango->getWeight();
+		totalWeight += mango->getWeight();
 		mango = mango->next;
 	}
 
@@ -185,7 +191,8 @@ double mangoTree::getTotalWeight()
 
 int mangoTree::getFruitQuantity()
 {
-	return this->getCounter();
+	cout << this->fruitCounter << endl;
+	return fruitCounter;
 }
 
 
@@ -213,4 +220,55 @@ bool mangoTree::treeMaxWeightExceeded()
 	else
 		return false;
 
+}
+
+int mangoTree::sortMangoTree()
+{
+	mangoFruit *temp = this->head;
+	mangoFruit *temp1 = this->head->next;
+	mangoFruit *temp2 = this->head;
+
+
+	for (int i = 0; i <= fruitCounter; i++)
+	{
+		if (temp->getWeight() > temp1->getWeight())
+		{
+			temp->next = temp1->next;
+			temp1->next->prev = temp;
+			temp->prev = temp1;
+			temp1->next = temp;
+			this->head = temp1;
+
+			temp = temp->next;
+			temp1 = temp;
+
+		}
+
+		
+	}
+
+	printMangoTree();
+
+	/*
+		if (temp->getWeight() > temp1->getWeight())
+		{
+			temp->next = temp1->next;
+			temp1->next->prev = temp;
+			temp->prev = temp1;
+			temp1->next = temp;
+			this->head = temp1;
+		}
+		*/
+
+	return 3000;
+}
+
+void mangoTree::decreaseFruit()
+{
+	this->fruitCounter--;
+}
+
+void mangoTree::increaseFruit()
+{
+	this->fruitCounter++;
 }
