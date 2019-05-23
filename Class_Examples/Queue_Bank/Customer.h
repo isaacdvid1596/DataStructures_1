@@ -7,21 +7,14 @@ class Customer
 {
 
 private:
-	int ticketnumber;
-
-	enum Operation
-	{
-		Deposit = 1,
-		Withdraw,
-		CustomerService,
-	};
+	char priorityTicket = '\0';
 
 public:
 	Customer();
-	Customer(int);
+	Customer(char);
 	virtual ~Customer();
 	Customer *next;
-	void setTicketNumber(int);
-	int getTicketNumber();
+	void setpriorityTicket(char);
+	char getpriorityTicket();
 };
 

@@ -4,26 +4,27 @@
 
 Customer::Customer()
 {
-	setTicketNumber(0);
+	setpriorityTicket('\0');
 	this->next = NULL;
 }
 
-Customer::Customer(int t)
+Customer::Customer(char c)
 {
-	setTicketNumber(t);
+	setpriorityTicket(c);
 	this->next = nullptr;
 }
 
 Customer::~Customer()
 {
+
 }
 
-void Customer::setTicketNumber(int t)
+void Customer::setpriorityTicket(char c)
 {
-	this->ticketnumber = t;
+	this->priorityTicket = '\0';
 }
 
-int Customer::getTicketNumber()
+char Customer::getpriorityTicket()
 {
-	return this->ticketnumber;
+	return this->priorityTicket;
 }

@@ -22,9 +22,71 @@ int Cashier::Enqueue(Customer *customer)
 	}
 	else
 	{
+
+		
+
+		int typeACounter = 0;
+
+
+		Customer *temp = this->head;
+
+		//if list only has an A priority
+		if (temp->getpriorityTicket() =='A')
+		{
+			temp->next = customer;
+		}
+		//if list has an element that is not a on the head and the upcoming element is A
+		else if (temp->getpriorityTicket() != 'A' && customer->getpriorityTicket() == 'A')
+		{
+			this->head = customer;
+			this->head->next = temp;
+		}
+
+		//if we want to insert a Third priority [C] after 3 customers or after every A
+
+		
+
+
+		else if (customer->getpriorityTicket()=='C')
+		{
+
+
+			Customer *temp1 = this->head;
+
+			int actualPos = 1;
+
+			while (actualPos <= 3)
+			{
+				temp1 = temp1->next;
+				actualPos++;
+			}
+
+			temp1->next = customer;
+			customer = temp1->next->next;
+
+		}
+
+		
+
+
+		
+
+		
+
+		
+
+
+
+
+
+
+
+
+		/*
 		this->tail->next = customer;
 		this->tail = customer;
 		customer->next = NULL;
+		*/
 	}
 
 	return 1;
@@ -46,7 +108,7 @@ int Cashier::Dequeue(Customer *customer)
 		Customer *customer1 = new Customer;
 		customer1 = this->head;
 		head = customer1->next;
-		cout << "Dequeued " << customer1->getTicketNumber() << endl;
+		cout << "Dequeued " << customer1->getpriorityTicket() << endl;
 		delete customer1;
 	}
 
@@ -94,7 +156,7 @@ void Cashier::printQueue()
 		customer = head;
 		while (customer != NULL)
 		{
-			cout << customer->getTicketNumber() << endl;
+			cout << customer->getpriorityTicket() << endl;
 			customer = customer->next;
 		}
 
