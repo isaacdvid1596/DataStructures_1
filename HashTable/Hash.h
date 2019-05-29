@@ -18,6 +18,8 @@ private:
 	};
 
 	item *HashTable[tableSize]; 
+
+	 
 	//core of hash , array with tablesize amount of buckets, 
 	//each of the buckets contain a pointer that points to next item
 
@@ -28,6 +30,7 @@ public:
 	Hash();
 	~Hash();
 	int hashFunction(string key);
+	void addItem(string name, string drink);
 
 
 };
