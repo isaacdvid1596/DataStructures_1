@@ -8,7 +8,7 @@ class Hash
 {
 
 private:
-	static const int tableSize = 10 ;
+	static const int tableSize = 4 ;
 
 	struct item
 	{
@@ -31,6 +31,11 @@ public:
 	~Hash();
 	int hashFunction(string key);
 	void addItem(string name, string drink);
+	int numberOfIndexItems(int index);
+	void printHashTable();
+	void PrintBucketItems(int index);
+	void FindDrink(string name);
+	void RemoveItem(string name);
 
 
 };
