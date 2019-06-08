@@ -7,7 +7,7 @@ class Receipt
 {
 
 private:
-	
+
 
 public:
 	string name;
@@ -15,7 +15,7 @@ public:
 	int receiptNumber;
 	Receipt *next;
 	Receipt();
-	Receipt(string,double,int);
+	Receipt(string, double, int);
 	~Receipt();
 	void setName(string name);
 	void setAmountDue(double amountDue);
@@ -26,4 +26,3 @@ public:
 
 
 };
-

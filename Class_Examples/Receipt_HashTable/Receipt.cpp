@@ -10,7 +10,7 @@ Receipt::Receipt()
 	this->next = NULL;
 }
 
-Receipt::Receipt(string name,double amountDue, int receiptNumber)
+Receipt::Receipt(string name, double amountDue, int receiptNumber)
 {
 
 	setName(name);
