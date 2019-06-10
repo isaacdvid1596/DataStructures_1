@@ -30,14 +30,15 @@ int Hash::hashFunction(int key)
 	for (int i = 0; i < str.length(); i++) //for cycle that goes through key from start to end
 	{
 		hash = (hash)+(int)str[i]; //hash in 0 adds itself + ASCII code of characters in key
-		cout << "hash" << hash << endl;
+		//cout << "hash" << hash << endl;
 	}
-
+	/*
 	cout << "key [0]" << (int)str[0] << endl;
 	cout << "key [1]" << (int)str[1] << endl;
 	cout << "key [2]" << (int)str[2] << endl;
 	cout << "key [3]" << (int)str[3] << endl;
 	cout << "key [4]" << (int)str[4] << endl;
+	*/
 
 	index = hash % tableSize; //index  equals hash modulo of tablesize 
 	return index; //return index
@@ -62,7 +63,7 @@ void Hash::addItem(int receiptNumber, string name, double amountDue)
 		newReceipt->amountDue = amountDue;
 		newReceipt->next = NULL; // make newReceipt next pointer , point to NULL;
 
-		while (temp != NULL) //while temp points to anything but NULL
+		while (temp->next != NULL) //while temp points to anything but NULL
 		{
 			temp = temp->next; //temp points to next
 		}
@@ -118,10 +119,81 @@ void Hash::printHashTable()
 
 void Hash::printBucketItems(int index)
 {
+	Receipt *temp = HashTable[index];
+
+	if (temp->receiptNumber == 0)
+	{
+		cout << "Bucket = " << index << " is empty" << endl;
+	}
+	else
+	{
+		cout << " Bucket " << index << " contains the following items" << endl;
+		while (temp != NULL)
+		{
+			cout << "-----------" << endl;
+			cout << temp->receiptNumber << endl;
+			cout << temp->name << endl;
+			cout << temp->amountDue << endl;
+
+			temp = temp->next;
+		}
+	}
 
 }
 
 void Hash::removeItem(int receiptNumber)
 {
+	int index = hashFunction(receiptNumber);
 
+	Receipt *deltemp;
+	Receipt *temp;
+	Receipt *temp1;
+
+	if ((HashTable[index]->receiptNumber == 0) && (HashTable[index]->name=="empty") && (HashTable[index]->amountDue=0.00))
+	{
+		cout << "receipt" << receiptNumber << "not found in the HashTable" << endl;
+	}
+
+	else if ((HashTable[index]->receiptNumber == receiptNumber) && (HashTable[index]->next = NULL))
+	{
+		HashTable[index]->receiptNumber = 0;
+		HashTable[index]->name = "name";
+		HashTable[index]->amountDue = 0.00;
+		cout << receiptNumber << " removed from the HashTable" << endl;
+	}
+
+	else if (HashTable[index]->receiptNumber == receiptNumber && HashTable[index]->next != NULL)
+	{
+		deltemp = HashTable[index];
+		HashTable[index]->receiptNumber = 0;
+		HashTable[index]->name = "name";
+		HashTable[index]->amountDue = 0.00;
+		delete deltemp;
+	}
+
+	else
+	{
+		temp = HashTable[index]->next;
+		temp1 = HashTable[index];
+
+		while (temp != NULL && temp1->receiptNumber != receiptNumber)
+		{
+			temp1 = temp;
+			temp = temp->next;
+		}
+
+		if (temp == NULL)
+		{
+			cout << receiptNumber << " cannot be found in HashTable" << endl;
+		}
+		else
+		{
+			deltemp = temp;
+			temp = temp->next;
+			temp1->next = temp;
+			delete deltemp;
+			cout << receiptNumber << " was removed from HashTable" << endl;
+		}
+
+	}
 }

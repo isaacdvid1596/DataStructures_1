@@ -6,7 +6,7 @@ class Hash
 
 private:
 
-	static const int tableSize = 10;
+	static const int tableSize = 4;
 
 	Receipt *HashTable[tableSize];
 
