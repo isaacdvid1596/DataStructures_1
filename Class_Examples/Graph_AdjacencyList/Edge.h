@@ -6,7 +6,8 @@ public:
 	Edge *next;
 	Vertex *adj;
 	int weight;
+	void setWeight(int);
+	int getWeight();
 	Edge();
 	~Edge();
 };
-

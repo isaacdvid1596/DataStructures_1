@@ -87,13 +87,13 @@ void Graph::addEdge(Vertex *origin, Vertex* destiny, int weight)
 	if (temp == NULL)
 	{
 		origin->adj = newEdge;
-		newEdge->adj = destiny; 
+		newEdge->adj = destiny;
 	}
 	else
 	{
 		while (temp->next != NULL)
 		{
-			temp =temp->next
+			temp = temp->next;
 		}
 		temp->next = newEdge;
 		newEdge->adj = destiny;
@@ -103,8 +103,32 @@ void Graph::addEdge(Vertex *origin, Vertex* destiny, int weight)
 
 
 
-void AdjList()
+void Graph::AdjList()
+{
+	Vertex *tempvertex; //temp vertex
+	Edge *tempedge;//temp edge
+
+	tempvertex = h;
+	while (tempvertex != NULL)
+	{
+		cout << tempvertex->name << "->";
+		tempedge = tempvertex->adj;
+		while (tempedge != NULL)
+		{
+			cout << tempedge->adj->name << "->";
+			tempedge = tempedge->next;
+		}
+		tempvertex = tempvertex->next;
+		cout << endl;
+	}
+}
+
+void  Graph::DeleteEdge(Vertex *origin, Vertex *destiny)
 {
 
 }
 
+void  Graph::Nullify()
+{
+
+}

@@ -8,7 +8,8 @@ public:
 	Vertex *next;
 	Edge *adj;
 	string name;
+	void setName(string);
+	string getName();
 	Vertex();
 	~Vertex();
 };
-
