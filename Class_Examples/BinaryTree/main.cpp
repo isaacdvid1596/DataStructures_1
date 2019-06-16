@@ -23,4 +23,17 @@ int main()
 
 	t.PrintInOrder();
 
+	cout << endl;
+	/*
+	for (int i = 0; i < 16; i++)
+	{
+		t.PrintChildren(treeKeys[i]);
+		cout << endl;
+	}
+	*/
+
+	cout << "smallest value = " << t.FindSmallest() << endl;
+	cout << "biggest value =" << t.FindBiggest() << endl;
+	
+
 }
