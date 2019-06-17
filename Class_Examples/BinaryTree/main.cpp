@@ -21,6 +21,12 @@ int main()
 
 	cout << "printing the tree in order after adding numbers" << endl;
 
+
+
+	t.PreOrder();
+
+	t.PostOrder();
+
 	t.PrintInOrder();
 
 	cout << endl;
@@ -32,8 +38,8 @@ int main()
 	}
 	*/
 
-	cout << "smallest value = " << t.FindSmallest() << endl;
-	cout << "biggest value =" << t.FindBiggest() << endl;
+	//cout << "smallest value = " << t.FindSmallest() << endl;
+	//cout << "biggest value =" << t.FindBiggest() << endl;
 	
 
 }
