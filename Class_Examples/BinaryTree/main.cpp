@@ -22,14 +22,23 @@ int main()
 	cout << "printing the tree in order after adding numbers" << endl;
 
 
+	t.PrintInOrder();
+
 
 	t.PreOrder();
 
 	t.PostOrder();
 
-	t.PrintInOrder();
+	//t.PrintInOrder();
 
 	cout << endl;
+
+	t.RemoveNode(50);
+
+	cout << endl;
+
+	t.PrintInOrder();
+
 	/*
 	for (int i = 0; i < 16; i++)
 	{
